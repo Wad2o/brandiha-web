@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@400;700&display=swap');
+
+:root {
+  --accent: 0 59 74;
+  --text-primary: 0 59 74;
+  --background-primary: 255 255 255;
+  --background-secondary: 255 255 255;
+  --border-color: 217 226 228;
+  --header-background: 0 59 74;
+  --header-text: 244 209 158;
+  --header-border-color: 37 82 87;
+  --footer-background: 0 59 74;
+  --footer-text: 244 209 158;
+  --footer-border-color: 37 82 87;
+  --button-background-primary: 0 59 74;
+  --button-text-primary: 244 209 158;
+  --gold: #F4D19E;
+  --dark-teal: #003B4A;
+  --dark-teal-rgb: 0, 59, 74;
+  --container-gutter: 1.25rem;
+  --section-spacing: 3.75rem;
+  --header-height: 64px;
+  --announcement-height: 38px;
+  --font-heading: 'Handlee', cursive;
+  --font-body: 'Inter', 'Noto Sans Arabic', sans-serif;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --container-gutter: 2rem;
+    --section-spacing: 6rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --container-gutter: 3rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: rgb(var(--text-primary));
+  background: rgb(var(--background-primary));
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Product Card Hover */
+.product-card {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 59, 74, 0.08);
+  transform: translateY(-4px);
+}
+
+.product-card:hover .product-image-img {
+  transform: scale(1.05);
+}
+
+.product-image-img {
+  transition: transform 0.6s;
+}
+
+/* Footer links */
+.footer-link {
+  transition: opacity 0.2s;
+}
+
+.footer-link:hover {
+  opacity: 1 !important;
+  text-decoration: underline;
+}
+
+/* Mobile drawer animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawer-animate {
+  animation: slideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive utilities */
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (min-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  }
+  .footer-bottom {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: block !important;
+  }
+  .hero-inner {
+    flex-direction: row !important;
+    padding: 5rem var(--container-gutter) !important;
+  }
+  .hero-inner > div {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ─── Global Animations ─────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,59,74,0.25); }
+  50% { box-shadow: 0 0 0 8px rgba(0,59,74,0); }
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ─── Applied Animations ─────────────────────────── */
+.animate-fade-in-up {
+  animation: fadeInUp 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered product grid items */
+.product-grid .product-card:nth-child(1) { animation: fadeInUp 0.5s 0.05s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(2) { animation: fadeInUp 0.5s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(3) { animation: fadeInUp 0.5s 0.15s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(4) { animation: fadeInUp 0.5s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(5) { animation: fadeInUp 0.5s 0.25s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(6) { animation: fadeInUp 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(7) { animation: fadeInUp 0.5s 0.35s cubic-bezier(0.4, 0, 0.2, 1) both; }
+.product-grid .product-card:nth-child(8) { animation: fadeInUp 0.5s 0.4s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* Product badge pop animation */
+.product-card .badge-pop {
+  animation: badgePop 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+/* Hero elements */
+.hero-title {
+  animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+}
+
+.hero-subtitle {
+  animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.25s both;
+}
+
+.hero-cta {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+.hero-image {
+  animation: fadeInRight 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+/* Section entrance (used on h2 / p subtitle) */
+.section-title {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Nav link underline hover effect */
+.nav-link-animated {
+  position: relative;
+}
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--dark-teal);
+  transition: width 0.25s ease;
+}
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+/* Announcement bar text */
+.announcement-text {
+  animation: fadeInUp 0.5s ease both;
+}
+
