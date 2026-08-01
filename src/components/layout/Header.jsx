@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { MenuIcon, SearchIcon, UserIcon, CartIcon } from '../ui/Icons'
 import Link from '../ui/Link'
-import SearchOverlay from '../ui/SearchOverlay'
+
 
 function Header({ cartCount, onMenuToggle }) {
   const [scrolled, setScrolled] = useState(false)
@@ -17,7 +17,7 @@ function Header({ cartCount, onMenuToggle }) {
 
   return (
     <>
-      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      
       <header
         style={{
           position: 'sticky',
